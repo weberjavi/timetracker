@@ -5,4 +5,7 @@ class Project < ActiveRecord::Base
   def self.iron_find(id)
     where(id: id).first
   end
+  def self.last_created_projects(num_projects)
+    order(created_at: :desc).limit(num_projects)
+  end
 end

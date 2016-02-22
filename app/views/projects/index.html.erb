@@ -1,0 +1,11 @@
+<h1>Estos son tus proyectos</h1>
+<ul>
+  <% @projects.each do |project| %>
+    <li>
+      <%= project.name %>
+      <% unless project.description.blank? %>
+        <%= " - #{project.description}" %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
