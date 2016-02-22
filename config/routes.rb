@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+# en este caso site sería el nombre del controlador y el método home
+  get "/" => "site#home"
+
+
+  get "/contact" => "site#contact"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
