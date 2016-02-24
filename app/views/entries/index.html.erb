@@ -1,0 +1,9 @@
+<p><%= @project.name %></p>
+
+<ul>
+  <%@entries.each do |entry|%>
+  <li><%= entry.hours %>h<%= entry.hours %>m - <%= entry.date.strftime("%d/%m/%Y") %></li>
+  <% end %>
+
+  <p>You have worked <%= @total_hours %> hours this month in the <%= @project.name %>.</p>
+</ul>

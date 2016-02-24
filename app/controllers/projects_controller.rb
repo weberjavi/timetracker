@@ -1,12 +1,10 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.last_created_projects(10)
+    @projects = Project.last_created_projects(0)
+    if @projects.empty? 
+      render("site/no_projects") 
+    end
   end
-  # def show
-  #   @project = Project.find(params[:id])
-  # rescue ActiveRecord::RecordNotFound
-  #   render "no_projects_found"
-  # end
 
   def show
     @project = Project.find_by(id: params[:id]) || render_404(params)
