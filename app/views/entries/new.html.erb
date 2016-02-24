@@ -1,3 +1,12 @@
+<% if @entry.errors.any? %>
+  <ul>
+    <% @entry.errors.full_message.each do |error|%>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 <%= form_for [@project, @entry] do |f| %>
   <%= f.label :hours %>
   <%= f.text_field :hours %>
@@ -6,7 +15,7 @@
   <%= f.text_field :minutes %>
   <br>
   <%= f.label :date %>
-  <%= f.text_field :date %>
+  <%= f.date_field :date %>
   <br>
   <%= f.submit "save" %>
 <% end %>
