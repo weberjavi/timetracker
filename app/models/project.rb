@@ -1,5 +1,12 @@
 class Project < ActiveRecord::Base
   has_many :entries
+
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :name, length: { maximum: 30 }
+  #validates :name, format:{ with: /\w\s[^_]/ }
+  validates :name, format:{ with: /[a-zA-Z0-9\ ]+/ }
+
   def self.clean_old
    where("created_at < ?", Time.now - 7.days).destroy_all
   end
