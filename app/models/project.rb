@@ -5,7 +5,8 @@ class Project < ActiveRecord::Base
   validates :name, uniqueness: true
   validates :name, length: { maximum: 30 }
   #validates :name, format:{ with: /\w\s[^_]/ }
-  validates :name, format:{ with: /[a-zA-Z0-9\ ]+/ }
+  validates :name, format:{ with: /\A[a-zA-ZÑñ
+    0-9\ ]+\z/ }
 
   def self.clean_old
    where("created_at < ?", Time.now - 7.days).destroy_all

@@ -5,9 +5,8 @@ Rails.application.routes.draw do
 
   get "/contact" => "site#contact"
 
-  get "/projects" => "projects#index"
-  
-  get "/projects/:id" => "projects#show"
+  resources :projects, only: [:index, :show] do 
+    resources :entries, only: [:index, :create, :new]
+  end
 
-  get "/projects/:project_id/entries" => "entries#index"
 end
