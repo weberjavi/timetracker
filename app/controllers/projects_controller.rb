@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.last_created_projects(0)
+    @projects = Project.last_created_projects(10)
     if @projects.empty? 
       render("site/no_projects") 
     end
