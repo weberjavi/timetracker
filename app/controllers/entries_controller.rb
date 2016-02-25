@@ -34,7 +34,6 @@ class EntriesController < ApplicationController
   end
 
   def update
-
     @project = Project.find params[:project_id]
     @entry = @project.entries.find params[:id]
     
@@ -43,6 +42,13 @@ class EntriesController < ApplicationController
     else
       render "edit"
     end
+  end
+
+  def destroy
+    project = Project.find params[:project_id]
+    entry = project.entries.find params[:id]
+    entry.destroy
+    redirect_to project_entries_path
   end
 
 

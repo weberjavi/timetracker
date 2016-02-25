@@ -1,3 +1,22 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+  box-sizing: border-box !important;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.projects_wrapper{
+  max-width: 80%;
+  margin: 0 auto;
+}
+.columns{
+  flex-wrap: wrap;
+}
+// .card{
+//   height: 300px;
+//   box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+//   border-radius: 10px;
+//   margin:20px;
+// }

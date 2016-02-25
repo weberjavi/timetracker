@@ -1,11 +1,13 @@
 <h1>Estos son tus proyectos</h1>
-<ul>
-  <% @projects.each do |project| %>
-    <li>
-      <%= link_to(project.name, project_entries_path(project.id)) %>
-      <% if project.description.present? %>
-        <%= " - #{project.description}" %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<div class="projects_wrapper">
+  <ul class="columns">
+    <% @projects.each do |project| %>
+      <li class="column is-3 card">
+        <%= link_to(project.name, project_entries_path(project.id)) %>
+        <% if project.description.present? %>
+          <%= " - #{project.description}" %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
