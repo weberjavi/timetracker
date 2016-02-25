@@ -3,8 +3,7 @@ class EntriesController < ApplicationController
   def index
     @project = Project.find_by id: params[:project_id]
     @entries = @project.entries
-    date = Date.today
-    @total_hours = @project.total_hours_in_month(date.month, date.year)
+    @date = Date.today
   end
 
   def new
@@ -22,8 +21,10 @@ class EntriesController < ApplicationController
     @entry = @project.entries.new(entry_params)
     #Try to save it
     if @entry.save 
+      flash[:notice] = "Entry created correctly"
       redirect_to action: "index", controller: "entries", project_id: @project.id
     else
+      flash[:alert] = "You have some errors:"
       render "new"
     end
   end

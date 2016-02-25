@@ -1,3 +1,6 @@
+
+
+<%= flash_messages %>
 <p><%= @project.name %></p>
 
 <ul>
@@ -7,7 +10,7 @@
   <%= link_to("Delete", project_entry_path(@project.id, entry.id), method: :delete, data: {confirm: "Are you sure?"}) %>
   <% end %>
 
-  <p>You have worked <%= @total_hours %> hours this month in the <%= @project.name %>.</p>
+  <p>You have worked <%= project_hours_for_month(@project, @date) %> hours this month.</p>
   <%= link_to("Projects", projects_path)%>
   <%= link_to("Create entry", new_project_entry_path(@project))%>
 </ul>
